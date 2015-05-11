@@ -46,7 +46,7 @@ p {text-align: center;}<?php
 		}
 		
 		public function displayFormContents() {
-			echo "<form name=\"". $this -> pageURL. "Form\" action=\"do-". $this -> pageURL. ".php\" method=\"post\" onsubmit=\"return checkInfo(this)\">\n<table>\n";
+			echo "<form name=\"". $this -> pageURL. "Form\" id=\"". $this -> pageURL. "Form\"action=\"do-". $this -> pageURL. ".php\" method=\"post\"\">\n<table>\n";
 			$this -> displayInputUsername();
 			$this -> displayInputPassword();
 			$this -> displayInputVerificationCode();
@@ -124,21 +124,7 @@ p {text-align: center;}<?php
 		
 		public function displayCheckScript() {
 			?>
-function checkInfo(form) {
-var username = form.username.value;
-var password = form.password.value;
-var usernamePattern = /^[a-zA-Z0-9_]{4,16}$/;
-var passwordPattern = /^[a-zA-Z0-9_]{6,16}$/;
-if (!usernamePattern.test(username)) {
-alert("请输入正确的用户名，只能由大小写英文字母、数字和下划线组成，长度为4-16位。");
-return false;
-}
-if (!passwordPattern.test(password)) {
-alert("请输入正确的密码，只能由大小写英文字母、数字和下划线组成，长度为6-16位。");
-return false;
-}
-return true;
-}
+
 <?php
 		} 
 		

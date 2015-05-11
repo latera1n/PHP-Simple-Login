@@ -5,7 +5,6 @@
         <title>用户登录</title>
         <style>
             .login {font-family: Helvetica, Arial, sans-serif; width: 300px; margin: 150px auto auto auto;}
-            .login_item {width: 200px;}
             .login_text {text-align: right; width: 80px;}
             .login_button {font-family: Helvetica, Arial, sans-serif; text-align: center; font-size: 16px;}
             input.input_item {height: 30px; font-size: 16px; width: 200px;}
@@ -19,7 +18,7 @@
     <body>
         <div class = "login">
             <h2>用户登录</h2>
-            <form name="loginForm" action="login.php" method="post" onsubmit="return checkInfo(this)">
+            <form id="loginForm" action="login.php" method="post" onsubmit="return checkInfo(this)">
                 <table>
                     <tr>
                         <td><p class = login_text>用户名：</p></td>
@@ -39,29 +38,18 @@
             </form>
             <table>
                 <tr>
-                    <td style="width: 100px;"><p><a href="index.html">返回首页</a></p></td>
-                    <td style="width: 100px;"><p><a href="reg.html">用户注册</a></p></td>
-                    <td style="width: 100px;"><p><a href="forgot-password.html">忘记密码</a></p></td>
+                    <td style="width: 100px;"><p><a href="index.php">返回首页</a></p></td>
+                    <td style="width: 100px;"><p><a href="reg.php">用户注册</a></p></td>
+                    <td style="width: 100px;"><p><a href="retrieve-password.php">忘记密码</a></p></td>
                 </tr>
             </table>
         </div>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/jquery.validate-1.13.1.js"></script>
         <script>
-            function checkInfo(form) {
-                var username = form.username.value;
-                var password = form.password.value;
-                var usernamePattern = /^[a-zA-Z0-9_]{4,16}$/;
-                var passwordPattern = /^[a-zA-Z0-9_]{6,16}$/;
-                if (!usernamePattern.test(username)) {
-                    alert("请输入正确的用户名，只能由大小写英文字母、数字和下划线组成，长度为4-16位。");
-                    return false;
-                }
-                if (!passwordPattern.test(password)) {
-                    alert("请输入正确的密码，只能由大小写英文字母、数字和下划线组成，长度为6-16位。");
-                    return false;
-                }
-                return true;
-            }
-            
+            $(document).ready(function () {
+
+            });
             function createCode(){
                 document.getElementById("code").src = "generate-code.php?"+Math.random()*10000;
             }

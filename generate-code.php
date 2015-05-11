@@ -24,9 +24,6 @@ imagefill($im,0,0,$gray);     //给图片填充颜色
 
 for($i=0;$i<2;$i++)  //加入干扰象素
 {
-     //imagearc($im, rand(0, 80) , rand(0, 36) , 0, 20, 75, 200, $red);    //加入弧线状干扰素
-	 //imagearc($im, rand(0, 80) , rand(0, 36) , 20, 40, 0, 30, $green);    //加入弧线状干扰素
-	 //imagearc($im, rand(0, 80) , rand(0, 36) , 70, 80, 40, 150, $blue);    //加入弧线状干扰素
      imageline($im, rand(0, 80) , rand(0, 36) ,rand(0, 80) , rand(0, 36) , $red);    //加入线条状干扰素
      imageline($im, rand(0, 80) , rand(0, 36) ,rand(0, 80) , rand(0, 36) , $green);    //加入线条状干扰素
      imageline($im, rand(0, 80) , rand(0, 36) ,rand(0, 80) , rand(0, 36) , $blue);    //加入线条状干扰素
@@ -35,22 +32,16 @@ for($i=0;$i<2;$i++)  //加入干扰象素
 }
 
 //将验证码绘入图片
-ImageTTFText($im, 15, rand(-30, 30), 5, 27, $balck, "/Library/Fonts/Chalkduster.ttf", $verifyCode[0]);
-ImageTTFText($im, 15, rand(-30, 30), 23, 27, $balck, "/Library/Fonts/Chalkduster.ttf", $verifyCode[1]);
-ImageTTFText($im, 15, rand(-30, 30), 41, 27, $balck, "/Library/Fonts/Chalkduster.ttf", $verifyCode[2]);
-ImageTTFText($im, 15, rand(-30, 30), 59, 27, $balck, "/Library/Fonts/Chalkduster.ttf", $verifyCode[3]);
-/*imagestring ($im, 5, 20, 10, $verifyCode[0], $black);
-imagestring ($im, 5, 30, 10, $verifyCode[1], $black);
-imagestring ($im, 5, 40, 10, $verifyCode[2], $black);
-imagestring ($im, 5, 50, 10, $verifyCode[3], $black);*/
+ImageTTFText($im, 15, rand(-30, 30), 5, 27, $black, "/Library/Fonts/Chalkduster.ttf", $verifyCode[0]);
+ImageTTFText($im, 15, rand(-30, 30), 23, 27, $black, "/Library/Fonts/Chalkduster.ttf", $verifyCode[1]);
+ImageTTFText($im, 15, rand(-30, 30), 41, 27, $black, "/Library/Fonts/Chalkduster.ttf", $verifyCode[2]);
+ImageTTFText($im, 15, rand(-30, 30), 59, 27, $black, "/Library/Fonts/Chalkduster.ttf", $verifyCode[3]);
   
 for($i=0;$i<100;$i++)  //加入干扰象素
 {
      imagesetpixel($im, rand(0, 80) , rand(0, 36) , $black);    //加入点状干扰素
      imagesetpixel($im, rand(0, 80) , rand(0, 36) , $red);
      imagesetpixel($im, rand(0, 80) , rand(0, 36) , $blue);
-     //imagearc($im, rand()p, rand()p, 20, 20, 75, 170, $black);    //加入弧线状干扰素
-     //imageline($im, rand()p, rand()p, rand()p, rand()p, $red);    //加入线条状干扰素
 }
 
 imagepng($im);

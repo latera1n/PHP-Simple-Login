@@ -18,7 +18,8 @@
 			echo "<h2>". $this -> title. "</h2>\n";
 			$this -> displayFormContents();
 			$this -> displayMenus();
-			echo "</div>\n<script type=\"text/javascript\" src=\"http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js\"></script>\n<script>\n";
+			echo "</div>\n<script type=\"text/javascript\" src=\"http://libs.baidu.com/jquery/1.9.1/jquery.js\"></script>\n";
+			echo "<script type=\"text/javascript\" src=\"http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js\"></script>\n<script>\n";
 			$this -> displayCheckScript();
 			$this -> displayCodeScript();
 			echo "</script>\n</body>\n</html>";

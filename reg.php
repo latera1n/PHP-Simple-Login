@@ -12,7 +12,7 @@
 		);
 	
 		public function displayFormContents() {
-			echo "<form name=\"". $this -> titleURL. "Form\" action=\"do-". $this -> pageURL. ".php\" method=\"post\" onsubmit=\"return checkInfo(this)\">\n<table>\n";
+			echo "<form name=\"". $this -> pageURL. "Form\" action=\"do-". $this -> pageURL. ".php\" method=\"post\" onsubmit=\"return checkInfo(this)\">\n<table>\n";
 			$this -> displayInputUsername();
 			$this -> displayInputPassword();
 			$this -> displayInputPasswordCheck();

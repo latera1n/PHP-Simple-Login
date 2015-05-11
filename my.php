@@ -17,7 +17,7 @@
     <body>
         <div class = "login">
             <h2>用户中心</h2>
-            <p><a href="login.php?action=logout">注销登录</a></p>
+            <p><a href="login.php?action=logout">点击这里注销登录</a></p>
         </div>
     </body>
 </html>

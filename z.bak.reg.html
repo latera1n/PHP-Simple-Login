@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>用户注册</title>
+        <style>
+            .login {font-family: Helvetica, Arial, sans-serif; width: 300px; margin: 150px auto auto auto;}
+            .login_item {width: 200px;}
+            .login_text {text-align: right; width: 80px;}
+            .login_button {font-family: Helvetica, Arial, sans-serif; text-align: center; font-size: 16px;}
+            input.input_item {height: 30px; font-size: 16px; width: 200px;}
+            input.input_verification {height: 30px; font-size: 16px; width: 110px; vertical-align: middle;}
+            img.verification_code {width: 80px; vertical-align: middle; padding-left: 5px; cursor: pointer;}
+            input.button {height: 50px; font-size: 20px;}
+            h2 {text-align: center;}
+			p {text-align: center;}
+        </style>
+    </head>
+    <body>
+        <div class = "login">
+            <h2>用户注册</h2>
+            <form name="regForm" action="reg.php" method="post" onsubmit="return checkInfo(this)">
+                <table>
+                    <tr>
+                        <td><p class = login_text>用户名：</p></td>
+                        <td><input class ="input_item" type="text" placeholder="请输入用户名" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td><p class = login_text>密码：</p></td>
+                        <td><input class ="input_item" type="password" placeholder="请输入密码" name="password"></td>
+                    </tr>
+                    <tr>
+                        <td><p class = login_text>确认密码：</p></td>
+                        <td><input class ="input_item" type="password" placeholder="请重复输入密码" name="password_check"></td>
+                    </tr>
+                    <tr>
+                        <td><p class = login_text>电子邮箱：</p></td>
+                        <td><input class ="input_item" type="text" placeholder="请输入电子邮箱" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><p class = login_text>验证码：</p></td>
+                        <td><input class ="input_verification" type="text" placeholder="请输入验证码" name="code">
+                            <img class= "verification_code" id="code" src="generate-code.php" alt="看不清楚？换一张。" onclick="createCode()"></td>
+                    </tr>
+                </table>
+                <p class="login_button"><input class ="button" name="submit" type="submit" value="注  册"></p>
+            </form>
+            <table>
+                <tr>
+                    <td style="width: 100px;"><p><a href="index.html">返回首页</a></p></td>
+                    <td style="width: 100px;"><p><a href="login.html">用户登录</a></p></td>
+                    <td style="width: 100px;"><p><a href="forgot-password.html">忘记密码</a></p></td>
+                </tr>
+            </table>
+            <script>
+            function checkInfo(form) {
+                var username = form.username.value;
+                var password = form.password.value;
+                var passwordCheck = form.password_check.value;
+                var email = form.email.value;
+                var usernamePattern = /^[a-zA-Z0-9_]{4,16}$/;
+                var passwordPattern = /^[a-zA-Z0-9_]{6,16}$/;
+                var emailPattern = /^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i;
+                if (!usernamePattern.test(username)) {
+                    alert("请输入正确的用户名，只能由大小写英文字母、数字和下划线组成，长度为4-16位。");
+                    return false;
+                }
+                if (!passwordPattern.test(password)) {
+                    alert("请输入正确的密码，只能由大小写英文字母、数字和下划线组成，长度为6-16位。");
+                    return false;
+                }
+                if (password !== passwordCheck) {
+                    alert("两次输入的密码不一致，请检查。");
+                    return false;
+                }
+                if (!emailPattern.test(email)) {
+                    alert("请输入正确的电子邮箱。");
+                    return false;
+                }
+                return true;
+            }
+            
+            function createCode(){
+                document.getElementById("code").src = "generate-code.php?"+Math.random()*10000;
+            }
+        	</script>
+        </div>
+    </body>
+</html>
